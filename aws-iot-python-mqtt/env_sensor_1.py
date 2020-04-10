@@ -14,13 +14,13 @@ import datetime
  
 connflag = False
  
-def on_connect(client, userdata, flags, rc):                        # function for making connection between
-    global connflag                                                 # the MQTT client and the broker
+def on_connect(client, userdata, flags, rc):                        
+    global connflag                                                 
     print("Connection to AWS")
     connflag = True
     print("Connection returned result: " + str(rc) )
  
-mqttc = mqtt.Client()                                               # MQTT client object
+mqttc = mqtt.Client('Env_Sensor_1')                                 # MQTT client object                              
 mqttc.on_connect = on_connect                                       # assign on_connect function
 
 #### Change following parameters #### 
@@ -45,7 +45,7 @@ while True:
         wind_dir = str(randint(0, 360))                             # specific station (with id 1)
         wind_int = str(randint(0, 100))
         rain = str(randint(0, 50))
-        time = str(datetime.datetime.now())[:19]                    # computation of the current date and time
+        time = str(datetime.datetime.now())[:19]                    
         
         data ={"deviceid":str(1), "datetime":time, "temperature":temp, "humidity":hum,
                "windDirection":wind_dir, "windIntensity":wind_int, "rainHeight":rain}
