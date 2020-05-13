@@ -17,7 +17,7 @@ s3_resource = boto3.resource('s3')
 sql_insert_into = ('insert into iot_sensor_data.iot_data_processed ' 
     '(deviceid, datetime, temperature, humidity, windDirection, windIntensity, rainHeight, day) '
     'select deviceid, datetime, temperature, humidity, windDirection, '
-    'windIntensity, rainHeight, date_format(datetime, \'%d\') as day '
+    'windIntensity, rainHeight, date_format(datetime, \'%Y-%m-%d\') as day '
     'from iot_data_staging ')
 
 messages_bucket = s3_resource.Bucket('iot-sensordata-messages')
