@@ -1,3 +1,7 @@
+#
+#This script is used by a Lambda function to process alert events received from a Kinesis stream 
+#It formats them into human readable messages and publishes them to an SNS topic
+#
 import json
 import base64
 import logging

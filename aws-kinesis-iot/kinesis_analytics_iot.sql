@@ -1,3 +1,5 @@
+--This script is used by Kinesis Analytics to process streaming data received from an IoT sensor
+
 --Join the raw messages stream with reference data read from S3
 CREATE OR REPLACE STREAM "MSGS_WITH_NAME_STREAM" ("deviceid" INT, "weatherstationname" VARCHAR(64), "datetime" TIMESTAMP, 
             "temperature" DECIMAL(4,1), "humidity" DECIMAL(4,1), "winddirection" DECIMAL(4,1), "windintensity" DECIMAL(4,1), 
